@@ -1,0 +1,10 @@
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 20
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${server.port:5555}}
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.service-registry.credentials.uri:http://127.0.0.1:5555}/eureka/
+
+hello: there
